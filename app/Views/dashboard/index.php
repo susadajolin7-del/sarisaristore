@@ -11,7 +11,7 @@
     
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
-        .sidebar { width: 260px; height: 100vh; background: #1e293b; color: white; position: fixed; transition: 0.3s; }
+        .sidebar { width: 260px; height: 100vh; background: #1e293b; color: white; position: fixed; transition: 0.3s; z-index: 1000; }
         .main-content { margin-left: 260px; padding: 30px; }
         .nav-link { color: #94a3b8; padding: 12px 20px; border-radius: 8px; margin: 5px 15px; display: flex; align-items: center; text-decoration: none; }
         .nav-link:hover, .nav-link.active { background: #334155; color: white; }
@@ -32,10 +32,17 @@
     </div>
     <hr class="mx-3 opacity-25">
     <nav class="mt-3">
-        <a href="#" class="nav-link active"><i class="fas fa-chart-line"></i> Dashboard</a>
-        <a href="#" class="nav-link"><i class="fas fa-boxes"></i> Inventory</a>
+        <!-- Navigation Links -->
+        <a href="<?= base_url('dashboard') ?>" class="nav-link active"><i class="fas fa-chart-line"></i> Dashboard</a>
+        <a href="<?= base_url('inventory') ?>" class="nav-link"><i class="fas fa-boxes"></i> Inventory</a>
         <a href="#" class="nav-link"><i class="fas fa-shopping-cart"></i> Sales Tracking</a>
         <a href="#" class="nav-link"><i class="fas fa-users"></i> Customers</a>
+        
+        <!-- UPDATED: User Management Link -->
+        <a href="<?= base_url('users') ?>" class="nav-link">
+            <i class="fas fa-user-shield"></i> User Management
+        </a>
+
         <a href="#" class="nav-link"><i class="fas fa-cog"></i> Settings</a>
     </nav>
 </div>
@@ -106,7 +113,7 @@
     </div>
 
     <!-- Recent Activity Table -->
-    <div class="card border-none shadow-sm mt-4 p-4 rounded-4">
+    <div class="card border-0 shadow-sm mt-4 p-4 rounded-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h5 class="fw-bold m-0">Recent Transactions</h5>
             <button class="btn btn-sm btn-outline-primary px-3">View All</button>
