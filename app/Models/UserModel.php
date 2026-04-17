@@ -13,12 +13,13 @@ class UserModel extends Model
     protected $allowedFields    = ['name', 'email', 'password', 'role'];
 
     // Dates
-    protected $useTimestamps = true;
+    // Set to FALSE to prevent database crash if missing created_at/updated_at columns
+    protected $useTimestamps = false; 
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
     // This helps with password hashing automatically before saving
-    protected $beforeInsert = ['hashPassword'];
+    protected $beforeInsert =['hashPassword'];
     protected $beforeUpdate = ['hashPassword'];
 
     protected function hashPassword(array $data)
